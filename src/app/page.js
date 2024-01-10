@@ -1,11 +1,149 @@
-import styles from './page.module.css'
+"use client";
+import React from "react"
+import './globals.css'
 import Layout from './layout'
 import 'bootstrap/dist/css/bootstrap.css';
 import { FiHome, FiRefreshCcw } from "react-icons/fi";
 import { CiSearch } from "react-icons/ci";
-import { FaRegTrashAlt } from "react-icons/fa";
+import { FaRegTrashAlt,FaRegEye } from "react-icons/fa";
+import { useState, useMemo } from "react";
+import { LuCheckSquare, LuXSquare } from "react-icons/lu";
+import Pagination from 'rc-pagination';
+
 
 export default function Home() {
+
+
+  const dataTable =
+    [{
+      name: 'name',
+      type: 'type',
+      dateShow: "19/05/2023",
+      dateOut: "20/05/2023",
+      status: "1"
+    },
+    {
+      name: 'name2',
+      type: 'type',
+      dateShow: "19/05/2023",
+      dateOut: "20/05/2023",
+      status: "1"
+    },
+    {
+      name: 'name3',
+      type: 'type',
+      dateShow: "19/05/2023",
+      dateOut: "20/05/2023",
+      status: "2"
+    },
+    {
+      name: 'name4',
+      type: 'type',
+      dateShow: "19/05/2023",
+      dateOut: "20/05/2023",
+      status: "1"
+    },
+    {
+      name: 'name5',
+      type: 'type',
+      dateShow: "19/05/2023",
+      dateOut: "20/05/2023",
+      status: "2"
+    },
+    {
+      name: 'name6',
+      type: 'type',
+      dateShow: "19/05/2023",
+      dateOut: "20/05/2023",
+      status: "1"
+    },
+    {
+      name: 'name7',
+      type: 'type',
+      dateShow: "19/05/2023",
+      dateOut: "20/05/2023",
+      status: "2"
+    },
+    {
+      name: 'name8',
+      type: 'type',
+      dateShow: "19/05/2023",
+      dateOut: "20/05/2023",
+      status: "1"
+    },
+    {
+      name: 'name9',
+      type: 'type',
+      dateShow: "19/05/2023",
+      dateOut: "20/05/2023",
+      status: "1"
+    },
+    {
+      name: 'name10',
+      type: 'type',
+      dateShow: "19/05/2023",
+      dateOut: "20/05/2023",
+      status: "2"
+    },
+    ]
+
+  // const checkAll = document.querySelector("#checkAll")
+  // const checkOption = document.querySelector("checkOption")
+  // const [cOption,setcOption] = useState();
+
+  // function eventCheckBox() {
+  //   const isChecked = checkAll.checked;
+  //   for (let i = 0; i < checkOption+cOption.length; i++) {
+  //     (checkOption+cOption)[i] .checked = isChecked;
+  //   }
+  // }
+  // checkAll.addEventListener("change",() => {
+  //   Array.form(checkOption.map)
+  // })
+
+  function checkAll(o) {
+    var boxes = document.getElementsByTagName("input");
+    console.log(boxes)
+    for (var x = 0; x < boxes.length; x++) {
+      var obj = boxes[x];
+      if (obj.type == "checkbox") {
+        if (obj.name != "check")
+          obj.checked = o.checked;
+      }
+    }
+  }
+
+  // -----------------------Paginate-----------------------------
+  const [perPage] = useState(5);
+  const [size, setSize] = useState(perPage);
+  const [current, setCurrent] = useState(1);
+  const PerPageChange = (value) => {
+    setSize(value);
+    const newPerPage = Math.ceil(dataTable?.length / value);
+    if (current > newPerPage) {
+      setCurrent(newPerPage);
+    }
+  }
+
+  const getData = (current, pageSize) => {
+    return dataTable?.slice((current - 1) * pageSize, current * pageSize);
+  };
+
+  const PaginationChange = (page, pageSize) => {
+    setCurrent(page);
+    setSize(pageSize)
+  }
+
+  const PrevNextArrow = (current, type, originalElement, pScollTop = true) => {
+    if (type === 'prev') {
+      return <button className="button-paginate border border-2 bg-white shadow-none mt-1 px-5 py-2 mx-5" style={{ borderRadius: "1px" }} title="Previous">Previous</button>;
+    }
+    if (type === 'next') {
+      return <button className="button-paginate border border-2 bg-white shadow-none mt-1 px-5 py-2 mx-5" style={{ borderRadius: "1px" }} title="Next">Next</button>;
+    }
+    return originalElement;
+  }
+  // -----------------------Paginate-----------------------------
 
   return (
     <Layout withHeader>
@@ -52,57 +190,115 @@ export default function Home() {
                     </form>
                   </div>
                 </div>
+
                 <div className="row border-bottom border-top p-3">
                   <div className="col-1">
                     <div className="form-check">
-                      <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
-                      {/* <label className="form-check-label" for="flexCheckDefault">
-                          ชื่อผลงาน
-                        </label> */}
+                      <input className="form-check-input" type="checkbox" onClick={() => { checkAll(this) }} id="checkAll" />
                     </div>
                   </div>
                   <div className="col">
-                    ชื่อผลงาน
+                    <b>ชื่อผลงาน</b>
                   </div>
                   <div className="col">
-                    ประเภทผลงาน
+                    <b>ประเภทผลงาน</b>
                   </div>
                   <div className="col">
-                    วันที่แสดงผลงาน
+                    <b>วันที่แสดงผลงาน</b>
                   </div>
                   <div className="col">
-                    วันที่สิ้นสุดแสดงผลงาน
+                    <b>วันที่สิ้นสุดแสดงผลงาน</b>
                   </div>
                   <div className="col">
-                    สถานะ
+                    <b>สถานะ</b>
+                  </div>
+                  <div className="col">
+                    {/* null */}
                   </div>
                 </div>
 
-                <div className="row border-bottom p-3">
-                  <div className="col-1">
-                    <div className="form-check">
-                      <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
-                      {/* <label className="form-check-label" for="flexCheckDefault">
-                          ชื่อผลงาน
-                        </label> */}
+                <>
+                  {
+                    dataTable?.length > 0 ? (
+                      <>
+                        {getData(current, size)?.map((item, index) => (
+                          <div className="row border-bottom table-hover p-3" key={index}>
+                            <div className="col-1">
+                              <div className="form-check">
+                                <input className="form-check-input checkOption" type="checkbox" name="checkOption" id="checkOption" />
+                              </div>
+                            </div>
+                            <div className="col">
+                              {item.name}
+                            </div>
+                            <div className="col">
+                              {item.type}
+                            </div>
+                            <div className="col">
+                              {item.dateShow}
+                            </div>
+                            <div className="col">
+                              {item.dateOut}
+                            </div>
+                            <div className="col">
+                              <>
+                                {
+                                  item.status == 1 ? (
+                                    <span className="text-success"><LuCheckSquare /> แสดง</span>
+                                  ) : (
+                                    <span className="text-danger"><LuXSquare /> ไม่แสดง</span>
+                                  )
+                                }
+                              </>
+                            </div>
+                            <div className="col">
+                            <span><FaRegEye /> รายละเอียด</span>
+                            </div>
+                          </div>
+                        ))}
+                      </>
+                    ) : (
+                      <>
+                        <div className="row border-bottom text-center p-3">
+                          <span><b>ไม่มีข้อมูล</b></span>
+                        </div>
+                      </>
+                    )
+                  }
+                </>
+
+                <section className="container-fluid flex-fill d-flex justify-content-between mt-3">
+                  <div className="row flex-fill ">
+                    <div className="col">
+                      <div className="row">
+                        <label for="inputPassword" className="col-sm-2 col-form-label"><b>Page size</b></label>
+                        <div className="col">
+                          <select className="form-select w-30">
+                            <option value="5" selected>5</option>
+                            <option value="10" >10</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="col-8">
+                      {dataTable?.length > 0 ? (
+                        <div className="text-center">
+                          <Pagination
+                            className="button-paginate"
+                            onShowSizeChange={PerPageChange}
+                            onChange={PaginationChange}
+                            itemRender={PrevNextArrow}
+                            total={dataTable?.length}
+                            current={current}
+                            pageSize={size}
+                          />
+                        </div>
+                      ) : (
+                        <></>
+                      )}
                     </div>
                   </div>
-                  <div className="col">
-                    ชื่อผลงาน
-                  </div>
-                  <div className="col">
-                    ประเภทผลงาน
-                  </div>
-                  <div className="col">
-                    วันที่แสดงผลงาน
-                  </div>
-                  <div className="col">
-                    วันที่สิ้นสุดแสดงผลงาน
-                  </div>
-                  <div className="col">
-                    สถานะ
-                  </div>
-                </div>
+                </section>
 
               </div>
             </div>
