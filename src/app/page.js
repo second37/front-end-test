@@ -1,95 +1,28 @@
-import Image from 'next/image'
 import styles from './page.module.css'
+import Layout from './layout'
+import 'bootstrap/dist/css/bootstrap.css';
+import { FiHome } from "react-icons/fi";
 
 export default function Home() {
+
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>src/app/page.js</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
-
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore starter templates for Next.js.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
+      <Layout withHeader>
+        <main className="containner-fluid d-flex flex-column flex-fill" style={{ backgroundColor: "#1f3a8b" }}>
+          <section className="containner-fluid d-flex flex-fill flex-column mx-4 my-5">
+            <ul className="nav nav-tabs border-0 mx-5 ps-4">
+              <li className="nav-item">
+                <a className="nav-link rounded-bottom-0 rounded-3 bg-light active" aria-current="page">
+                  <b className="px-2"><FiHome /></b> <b className="pe-2">หน้าหลัก</b>
+                </a>
+              </li>
+            </ul>
+            <div className="d-flex flex-fill flex-column bg-light rounded-3 mx-5" >
+              <div className="container-fluid mx-3 my-5">
+                <h3><b>รายการผลงาน</b></h3>
+              </div>
+            </div>
+          </section>
+        </main>
+      </Layout>
   )
 }
