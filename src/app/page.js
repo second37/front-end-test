@@ -5,14 +5,15 @@ import Layout from './layout'
 import 'bootstrap/dist/css/bootstrap.css';
 import { FiHome, FiRefreshCcw } from "react-icons/fi";
 import { CiSearch } from "react-icons/ci";
-import { FaRegTrashAlt,FaRegEye } from "react-icons/fa";
+import { FaRegTrashAlt, FaRegEye } from "react-icons/fa";
 import { useState, useMemo } from "react";
 import { LuCheckSquare, LuXSquare } from "react-icons/lu";
 import Pagination from 'rc-pagination';
+import { Router, useRouter } from 'next/router';
+import Link from "next/link";
 
 
 export default function Home() {
-
 
   const dataTable =
     [{
@@ -100,6 +101,8 @@ export default function Home() {
   // checkAll.addEventListener("change",() => {
   //   Array.form(checkOption.map)
   // })
+
+  // const router = useRouter();
 
   function checkAll(o) {
     var boxes = document.getElementsByTagName("input");
@@ -220,9 +223,9 @@ export default function Home() {
                 <>
                   {
                     dataTable?.length > 0 ? (
-                      <>
+                      <Link href="/detail" style={{ textDecoration: "none" }}>
                         {getData(current, size)?.map((item, index) => (
-                          <div className="row border-bottom table-hover p-3" key={index}>
+                          <div className="row border-bottom table-hover pointer p-3" key={index}>
                             <div className="col-1">
                               <div className="form-check">
                                 <input className="form-check-input checkOption" type="checkbox" name="checkOption" id="checkOption" />
@@ -252,11 +255,11 @@ export default function Home() {
                               </>
                             </div>
                             <div className="col">
-                            <span><FaRegEye /> รายละเอียด</span>
+                              <span><FaRegEye /> รายละเอียด</span>
                             </div>
                           </div>
                         ))}
-                      </>
+                      </Link>
                     ) : (
                       <>
                         <div className="row border-bottom text-center p-3">

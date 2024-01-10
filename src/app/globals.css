@@ -114,6 +114,10 @@ a {
   background-color: skyblue !important;
 }
 
+.pointer {
+  cursor: pointer !important;
+}
+
 /* // ----------------------------------- Pagination ----------------------------------------- // */
 
 .button-paginate {

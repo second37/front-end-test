@@ -2,6 +2,7 @@
 import { Inter } from 'next/font/google'
 import './globals.css'
 import Header from "../../components/header";
+import Header2 from "../../components/header2";
 import Footer from "../../components/footer";
 
 const inter = Inter({ subsets: ['latin'] })
@@ -12,10 +13,11 @@ const inter = Inter({ subsets: ['latin'] })
   
 }
 
-export default function RootLayout({ children, withHeader, withFooter }) {
+export default function RootLayout({ children, withHeader,withHeader2, withFooter }) {
   return (
     <main className="containner-fluid d-flex flex-column flex-fill vh-100">
       {withHeader && <Header />}
+      {withHeader2 && <Header2 />}
       {children}
       {withFooter && <Footer />}
     </main>
