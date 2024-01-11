@@ -14,6 +14,7 @@ function Test_Front({ Component, pageProps }) {
         <title>Front-end Test</title>
         <meta name="description" content="Front-end Test" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <script type="module" src="page.js"></script>
         <meta property="og:description" content="Front-end Test"/>
         <link rel="icon" href="/favicon.ico" />
         <script type="module"></script>
