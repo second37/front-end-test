@@ -15,7 +15,7 @@ import { FaArrowLeft } from "react-icons/fa";
 import { FiEdit } from "react-icons/fi";
 
 
-export default function detail() {
+export default function Detail() {
     const [thumbsSwiper, setThumbsSwiper] = useState();
     const [piclist, setpiclist] = useState([
         {
@@ -76,8 +76,12 @@ export default function detail() {
                                 <h3>Digital Ocean</h3>
                             </div>
                             <div className="col text-end">
-                                <button type="button" className="btn btn-light border border-2 col-form-label rounded-circle mx-1"><FaArrowLeft /></button>
-                                <button type="button" className="btn btn-light border border-2 col-form-label rounded-circle mx-1"><FiEdit /></button>
+                                <Link href="/">
+                                    <button type="button" className="btn btn-light border border-2 col-form-label rounded-circle mx-1"><FaArrowLeft /></button>
+                                </Link>
+                                <Link href="/edit">
+                                    <button type="button" className="btn btn-light border border-2 col-form-label rounded-circle mx-1"><FiEdit /></button>
+                                </Link>
                             </div>
                         </div>
                         <p>ประเภทผลงาน: <b>ศิลปะกรรม</b></p>
@@ -85,7 +89,19 @@ export default function detail() {
                         <p>วันที่แสดง</p>
                         <p><b>เจ้าของสิทธิ์</b></p>
                         <div className="border border-2 p-3 rounded-3">
-
+                            <p><b>Amethyst Solutions</b></p>
+                            <p>เบอร์โทร: <b>066-452-1234</b></p>
+                            <p>อีเมล: <b>Amethyst@Solutions.com</b></p>
+                        </div>
+                        <p className="my-3"><b>รายละเอียด</b></p>
+                        <p>Some placeholder content for the first collapse component of this multi-collapse example.
+                            This panel is hidden by default but revealed when the user activates the relevant trigger.
+                            <a data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                                Read more
+                            </a>
+                        </p>
+                        <div className="collapse" id="collapseExample">
+                            Some placeholder content for the collapse component. This panel is hidden by default but revealed when the user activates the relevant trigger.
                         </div>
                     </div>
                 </div>

@@ -1,5 +1,5 @@
 
-const Header = () => {
+const Header2 = () => {
   return (
     <header>
     <nav className="navbar border-bottom bg-light p-4" style={{ fontFamily: 'Inter' }}>
@@ -14,4 +14,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default Header2;

@@ -88,20 +88,6 @@ export default function Home() {
     },
     ]
 
-  // const checkAll = document.querySelector("#checkAll")
-  // const checkOption = document.querySelector("checkOption")
-  // const [cOption,setcOption] = useState();
-
-  // function eventCheckBox() {
-  //   const isChecked = checkAll.checked;
-  //   for (let i = 0; i < checkOption+cOption.length; i++) {
-  //     (checkOption+cOption)[i] .checked = isChecked;
-  //   }
-  // }
-  // checkAll.addEventListener("change",() => {
-  //   Array.form(checkOption.map)
-  // })
-
   // const router = useRouter();
 
   function checkAll(o) {
