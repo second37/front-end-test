@@ -2,12 +2,13 @@
   "name": "front-end-test",
   "version": "0.1.0",
   "private": true,
+  "main": "page.js",
+  "type": "module",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
-    "type": "module"
+    "lint": "next lint"
   },
   "dependencies": {
     "bootstrap": "^5.3.2",

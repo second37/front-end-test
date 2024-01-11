@@ -92,7 +92,6 @@ export default function Home() {
 
   function checkAll(o) {
     var boxes = document.getElementsByTagName("input");
-    console.log(boxes)
     for (var x = 0; x < boxes.length; x++) {
       var obj = boxes[x];
       if (obj.type == "checkbox") {
@@ -183,7 +182,7 @@ export default function Home() {
                 <div className="row border-bottom border-top p-3">
                   <div className="col-1">
                     <div className="form-check">
-                      <input className="form-check-input" type="checkbox" onClick={() => { checkAll(this) }} id="checkAll" />
+                      <input className="form-check-input" type="checkbox" onClick={() => { checkAll() }} id="checkAll" />
                     </div>
                   </div>
                   <div className="col">
