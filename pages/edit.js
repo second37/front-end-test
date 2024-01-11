@@ -80,10 +80,10 @@ export default function Edit() {
                                 <input type="date" className="form-control" id="inputCity" required />
                                 <label for="inputCity" className="form-label text-muted">ตัวอย่าง : 01/01/2556</label>
                             </div>
-                            <div className="col-2 text-center">
+                            <div className="col-2 justify-content-center">
                                 <div className="form-check form-switch">
                                     <p for="inputCity" className="form-label">วันที่สิ้นสุด<span className="text-danger">*</span></p>
-                                    <input className="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked />
+                                    <input className="form-check-input" type="checkbox" id="flexSwitchCheckChecked" />
                                 </div>
                             </div>
                             <div className="col-3">
